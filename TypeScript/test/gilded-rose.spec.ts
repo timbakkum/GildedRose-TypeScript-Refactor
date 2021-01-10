@@ -1,26 +1,14 @@
-import {Item, GildedRose} from '../app/gilded-rose';
+import { Item, GildedRose } from "../app/gilded-rose";
 
-const testItems = [
-  new Item('+5 Dexterity Vest', 10, 20), //
-  new Item('Aged Brie', 2, 0), //
-  new Item('Elixir of the Mongoose', 5, 7), //
-  new Item('Sulfuras, Hand of Ragnaros', 0, 80), //
-  new Item('Sulfuras, Hand of Ragnaros', -1, 80),
-  new Item('Backstage passes to a TAFKAL80ETC concert', 15, 20),
-  new Item('Backstage passes to a TAFKAL80ETC concert', 10, 49),
-  new Item('Backstage passes to a TAFKAL80ETC concert', 5, 49),
-  // this conjured item does not work properly yet
-  new Item('Conjured Mana Cake', 3, 6)];
-
-describe('Gilded Rose', function() {
-  it('should initialize items', function() {
-    const gildedRose = new GildedRose([new Item('+5 Dexterity Vest', 10, 20)]);
+describe("Gilded Rose", function () {
+  it("should initialize items", function () {
+    const gildedRose = new GildedRose([new Item("+5 Dexterity Vest", 10, 20)]);
     const items = gildedRose.updateQuality();
-    expect(items[0].name).toEqual('+5 Dexterity Vest');
+    expect(items[0].name).toEqual("+5 Dexterity Vest");
   });
 
-  it('should handle updating regular items correctly', () => {
-    const regularItem = new Item('+5 Dexterity Vest', 2, 4);
+  it("should handle updating regular items correctly", () => {
+    const regularItem = new Item("+5 Dexterity Vest", 2, 4);
     const gildedRose = new GildedRose([regularItem]);
 
     expect(regularItem.sellIn).toEqual(2);
@@ -46,7 +34,7 @@ describe('Gilded Rose', function() {
   });
 
   it('should handle updating "Aged Brie" correctly', () => {
-    const agedBrie = new Item('Aged Brie', 2, 0);
+    const agedBrie = new Item("Aged Brie", 2, 0);
     const gildedRose = new GildedRose([agedBrie]);
 
     // quality increases normally when sellIn positive
@@ -73,9 +61,13 @@ describe('Gilded Rose', function() {
     expect(agedBrie.quality).not.toBeGreaterThan(50);
   });
 
-  it('should handle updating backstage passes correctly', () => {
+  it("should handle updating backstage passes correctly", () => {
     // eslint-disable-next-line max-len
-    const backstagePasses = new Item('Backstage passes to a TAFKAL80ETC concert', 11, 25);
+    const backstagePasses = new Item(
+      "Backstage passes to a TAFKAL80ETC concert",
+      11,
+      25
+    );
     const gildedRose = new GildedRose([backstagePasses]);
 
     gildedRose.updateQuality();
@@ -111,7 +103,7 @@ describe('Gilded Rose', function() {
   });
 
   it('handles updating "Sulfuras" correctly', () => {
-    const sulfuras = new Item('Sulfuras, Hand of Ragnaros', 0, 80);
+    const sulfuras = new Item("Sulfuras, Hand of Ragnaros", 0, 80);
     const gildedRose = new GildedRose([sulfuras]);
 
     expect(sulfuras.sellIn).toEqual(0);
