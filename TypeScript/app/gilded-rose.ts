@@ -11,10 +11,14 @@ export class Item {
 }
 
 export class GildedRose {
-    items: Array<Item>;
+    private items: Array<Item>;
 
     constructor(items = [] as Array<Item>) {
         this.items = items;
+    }
+
+    get currentItems() {
+        return this.items;
     }
 
     updateQuality() {
