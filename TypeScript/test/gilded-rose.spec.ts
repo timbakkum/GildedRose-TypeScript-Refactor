@@ -1,4 +1,12 @@
-import { Item, GildedRose } from "../app/gilded-rose";
+import {
+  Item,
+  GildedRose,
+  ConjuredItem,
+  RegularItem,
+  SulfurasItem,
+  BackstagePassItem,
+  AgedBrieItem,
+} from "../app/gilded-rose";
 
 describe("Gilded Rose", function () {
   it("should initialize items", function () {
@@ -8,7 +16,7 @@ describe("Gilded Rose", function () {
   });
 
   it("should handle updating regular items correctly", () => {
-    const regularItem = new Item("+5 Dexterity Vest", 2, 4);
+    const regularItem = new RegularItem("+5 Dexterity Vest", 2, 4);
     const gildedRose = new GildedRose([regularItem]);
 
     expect(regularItem.sellIn).toEqual(2);
@@ -34,7 +42,7 @@ describe("Gilded Rose", function () {
   });
 
   it('should handle updating "Aged Brie" correctly', () => {
-    const agedBrie = new Item("Aged Brie", 2, 0);
+    const agedBrie = new AgedBrieItem("Aged Brie", 2, 0);
     const gildedRose = new GildedRose([agedBrie]);
 
     // quality increases normally when sellIn positive
@@ -63,7 +71,7 @@ describe("Gilded Rose", function () {
 
   it("should handle updating backstage passes correctly", () => {
     // eslint-disable-next-line max-len
-    const backstagePasses = new Item(
+    const backstagePasses = new BackstagePassItem(
       "Backstage passes to a TAFKAL80ETC concert",
       11,
       25
@@ -103,7 +111,7 @@ describe("Gilded Rose", function () {
   });
 
   it('handles updating "Sulfuras" correctly', () => {
-    const sulfuras = new Item("Sulfuras, Hand of Ragnaros", 0, 80);
+    const sulfuras = new SulfurasItem("Sulfuras, Hand of Ragnaros", 0, 80);
     const gildedRose = new GildedRose([sulfuras]);
 
     expect(sulfuras.sellIn).toEqual(0);
@@ -116,5 +124,16 @@ describe("Gilded Rose", function () {
     gildedRose.updateQuality();
     expect(sulfuras.sellIn).toEqual(0);
     expect(sulfuras.quality).toEqual(80);
+  });
+
+  it('handles updating "conjured" items correctly', () => {
+    const conjuredItem = new ConjuredItem("Conjured Mana Cake", 3, 6);
+    const test = new ConjuredItem("Conjured test", 3, 6);
+    const gildedRose = new GildedRose([conjuredItem, test]);
+    gildedRose.updateQuality();
+    expect(conjuredItem.sellIn).toEqual(2);
+    expect(conjuredItem.quality).toEqual(4);
+
+    expect(test.sellIn).toEqual(2);
   });
 });
