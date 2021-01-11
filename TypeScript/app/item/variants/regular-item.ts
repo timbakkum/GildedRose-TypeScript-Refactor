@@ -9,7 +9,7 @@ export class RegularItem extends UpdateableItem {
         : this.defaultDeprecationRate;
     this.quality = Math.max(this.minQuality, this.quality - deprecationRate);
 
-    this.sellIn = this.sellIn - 1;
+    this.decreaseSellIn();
 
     return this as Item;
   }

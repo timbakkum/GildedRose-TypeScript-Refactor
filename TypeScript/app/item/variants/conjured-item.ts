@@ -10,7 +10,7 @@ export class ConjuredItem extends UpdateableItem {
       this.quality = this.minQuality;
     }
 
-    this.sellIn = this.sellIn - 1;
+    this.decreaseSellIn();
 
     return this as Item;
   }

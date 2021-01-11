@@ -15,7 +15,7 @@ export class AgedBrieItem extends UpdateableItem {
         : this.pastSellByDateAppreciationRate;
 
     this.quality = Math.min(this.maxQuality, this.quality + appreciationRate);
-    this.sellIn = this.sellIn - 1;
+    this.decreaseSellIn();
 
     return this as Item;
   }

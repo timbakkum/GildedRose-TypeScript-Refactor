@@ -10,4 +10,8 @@ export abstract class UpdateableItem extends Item {
   protected defaultDeprecationRate = 1;
 
   abstract handleUpdate(): Item;
+
+  protected decreaseSellIn() {
+    this.sellIn = this.sellIn - 1;
+  }
 }
