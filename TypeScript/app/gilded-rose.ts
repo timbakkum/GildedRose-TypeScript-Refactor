@@ -24,9 +24,6 @@ export class GildedRose {
       const isSelfUpdatableItem = item instanceof UpdateableItem;
 
       if (isSelfUpdatableItem) {
-        // relic of the refactor process - kept for review purposes
-        // keep this in case users want to chose the object type manually
-        // in the future instead of parsing the object name?
         return (item as UpdateableItem).handleUpdate();
       } else {
         return GildedRose.parseLegacyItem(item).handleUpdate();

@@ -1,11 +1,19 @@
 import { GildedRose } from "../app/gilded-rose";
-import { Item } from "./../app/item";
+import { Item, UpdateableItem } from "./../app/item";
 
 describe("Gilded Rose", function () {
   it("should initialize items", function () {
     const gildedRose = new GildedRose([new Item("+5 Dexterity Vest", 10, 20)]);
     const items = gildedRose.updateQuality();
     expect(items[0].name).toEqual("+5 Dexterity Vest");
+  });
+
+  it("parseLegacyItems should make the Item an UpdateableItem", () => {
+    const parsedItem = GildedRose.parseLegacyItem(
+      new Item("+5 Dexterity Vest", 10, 20)
+    );
+
+    expect(parsedItem instanceof UpdateableItem).toBe(true);
   });
 
   it("should handle updating regular items correctly", () => {
