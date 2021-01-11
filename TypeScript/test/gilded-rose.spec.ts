@@ -1,12 +1,12 @@
+import { GildedRose } from "../app/gilded-rose";
 import {
   Item,
-  GildedRose,
   ConjuredItem,
   RegularItem,
   SulfurasItem,
   BackstagePassItem,
   AgedBrieItem,
-} from "../app/gilded-rose";
+} from "./../app/item";
 
 describe("Gilded Rose", function () {
   it("should initialize items", function () {
