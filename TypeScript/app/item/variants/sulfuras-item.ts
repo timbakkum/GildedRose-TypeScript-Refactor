@@ -2,12 +2,11 @@ import { Item } from "../item";
 import { UpdateableItem } from "./../updateable-item";
 
 export class SulfurasItem extends UpdateableItem {
-  private legendaryQuality = 80;
+  constructor(name: string, sellIn: number, quality: number) {
+    super(name, sellIn, 80);
+  }
 
   handleUpdate() {
-    this.quality = this.legendaryQuality;
-    this.sellIn = this.sellIn;
-
     return this as Item;
   }
 }
