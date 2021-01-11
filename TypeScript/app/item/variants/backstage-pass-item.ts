@@ -1,3 +1,4 @@
+import { Item } from "../item";
 import { UpdateableItem } from "./../updateable-item";
 
 // N.B. here we assume from the specification that the backstage pass behaviour can apply to different item names
@@ -23,5 +24,7 @@ export class BackstagePassItem extends UpdateableItem {
     }
 
     this.sellIn = this.sellIn - 1;
+
+    return this as Item;
   }
 }

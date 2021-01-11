@@ -1,3 +1,4 @@
+import { Item } from "../item";
 import { UpdateableItem } from "./../updateable-item";
 
 export class RegularItem extends UpdateableItem {
@@ -9,5 +10,7 @@ export class RegularItem extends UpdateableItem {
     this.quality = Math.max(this.minQuality, this.quality - deprecationRate);
 
     this.sellIn = this.sellIn - 1;
+
+    return this as Item;
   }
 }

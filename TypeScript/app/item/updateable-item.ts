@@ -8,5 +8,5 @@ export abstract class UpdateableItem extends Item {
   protected sellInLimit = 0; // @FIXME think of better naming?
   protected defaultDeprecationRate = 1;
 
-  abstract handleUpdate(): void;
+  abstract handleUpdate(): Item;
 }

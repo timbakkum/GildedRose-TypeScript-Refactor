@@ -1,3 +1,4 @@
+import { Item } from "../item";
 import { UpdateableItem } from "./../updateable-item";
 
 // @FIXME ideally you would want to name this in a more generic way.
@@ -15,5 +16,7 @@ export class AgedBrieItem extends UpdateableItem {
 
     this.quality = Math.min(this.maxQuality, this.quality + appreciationRate);
     this.sellIn = this.sellIn - 1;
+
+    return this as Item;
   }
 }

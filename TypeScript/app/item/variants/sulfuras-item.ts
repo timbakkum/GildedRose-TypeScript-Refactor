@@ -1,3 +1,4 @@
+import { Item } from "../item";
 import { UpdateableItem } from "./../updateable-item";
 
 export class SulfurasItem extends UpdateableItem {
@@ -6,5 +7,7 @@ export class SulfurasItem extends UpdateableItem {
   handleUpdate() {
     this.quality = this.legendaryQuality;
     this.sellIn = this.sellIn;
+
+    return this as Item;
   }
 }

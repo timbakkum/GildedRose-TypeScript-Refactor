@@ -21,7 +21,7 @@ describe("golden master text test", () => {
   test.each(daysArray)("day %i", (day) => {
     let textSnapshot = `-------- day ${day} -------- \n`;
     textSnapshot += "name, sellIn, quality \n";
-    items.forEach((element) => {
+    gildedRose.currentItems.forEach((element) => {
       textSnapshot += `${element.name} ${element.sellIn} ${element.quality}\n`;
     });
     expect(textSnapshot).toMatchSnapshot();

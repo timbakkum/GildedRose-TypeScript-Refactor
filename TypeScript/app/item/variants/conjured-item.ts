@@ -1,3 +1,4 @@
+import { Item } from "./../item";
 import { UpdateableItem } from "./../updateable-item";
 
 export class ConjuredItem extends UpdateableItem {
@@ -10,5 +11,7 @@ export class ConjuredItem extends UpdateableItem {
     }
 
     this.sellIn = this.sellIn - 1;
+
+    return this as Item;
   }
 }
