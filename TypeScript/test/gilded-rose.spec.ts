@@ -134,8 +134,15 @@ describe("Gilded Rose", function () {
   it('handles updating "conjured" items correctly', () => {
     const conjuredItem = new Item("Conjured", 3, 6);
     const gildedRose = new GildedRose([conjuredItem]);
-    const items = gildedRose.updateQuality();
+    let items = gildedRose.updateQuality();
     expect(items[0].sellIn).toEqual(2);
     expect(items[0].quality).toEqual(4);
+
+    gildedRose.updateQuality();
+    gildedRose.updateQuality();
+    items = gildedRose.updateQuality();
+
+    expect(items[0].sellIn).toEqual(-1);
+    expect(items[0].quality).toEqual(0);
   });
 });

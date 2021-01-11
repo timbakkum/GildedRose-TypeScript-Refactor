@@ -6,7 +6,7 @@ export class ConjuredItem extends UpdateableItem {
     if (this.quality > 2) {
       this.quality = this.quality - this.defaultDeprecationRate * 2;
     }
-    if (this.quality < 2) {
+    if (this.quality <= 2) {
       this.quality = this.minQuality;
     }
 
