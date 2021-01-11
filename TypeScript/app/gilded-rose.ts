@@ -4,7 +4,6 @@ import {
   ConjuredItem,
   Item,
   RegularItem,
-  SulfurasItem,
   UpdateableItem,
 } from "./item";
 
@@ -36,7 +35,7 @@ export class GildedRose {
   static parseLegacyItem = (item: Item): UpdateableItem => {
     const classMap = {
       "Aged Brie": AgedBrieItem,
-      "Sulfuras, Hand of Ragnaros": SulfurasItem,
+      "Sulfuras, Hand of Ragnaros": UpdateableItem,
       "Backstage passes to a TAFKAL80ETC concert": BackstagePassItem,
       Conjured: ConjuredItem,
       default: RegularItem,
