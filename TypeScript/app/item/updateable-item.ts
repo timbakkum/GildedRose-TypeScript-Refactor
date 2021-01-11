@@ -10,7 +10,7 @@ export class UpdateableItem extends Item {
   protected defaultDeprecationRate = 1;
 
   handleUpdate(): Item {
-    return this;
+    return this as Item;
   }
 
   protected decreaseSellIn() {

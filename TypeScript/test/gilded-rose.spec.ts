@@ -16,6 +16,8 @@ describe("Gilded Rose", function () {
     expect(parsedItem instanceof UpdateableItem).toBe(true);
   });
 
+  // NOTE: all unit tests that follow I would ideally break up into separate files
+  // and separate cases for clarity to other developer experience/documentation purposes
   it("should handle updating regular items correctly", () => {
     const regularItem = new Item("+5 Dexterity Vest", 2, 4);
     const gildedRose = new GildedRose([regularItem]);

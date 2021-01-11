@@ -14,7 +14,7 @@ const items = [
 ];
 
 const gildedRose = new GildedRose(items);
-const days = 31;
+const days = 31; // enough days for everything to deprecate/appreciate in quality
 const daysArray = Array.from(Array(days), (_, i) => i);
 describe("golden master text test", () => {
   test.each(daysArray)("day %i", (day) => {
